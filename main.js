@@ -5,8 +5,7 @@ const port = 3000;
 
 app.get("/", async (req, res) => {
   const users = await prisma.user.findMany();
-  console.log(users);
-  return res.send(users);
+  return res.send("Hello World!");
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
