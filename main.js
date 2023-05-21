@@ -1,7 +1,12 @@
+const { prisma } = require("./prisma/db.setup");
 const app = require("express")();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const port = 3000;
+
+app.get("/", async (req, res) => {
+  const users = await prisma.user.findMany();
+  console.log(users);
+  return res.send(users);
 });
 
-app.listen(3000);
+app.listen(port, () => console.log(`Listening on port ${port}`));
