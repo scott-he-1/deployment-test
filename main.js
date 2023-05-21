@@ -1,7 +1,7 @@
 const { prisma } = require("./prisma/db.setup");
 const app = require("express")();
 
-const port = 3000;
+const port = 5432;
 
 app.get("/", async (req, res) => {
   return res.send("Hello World!");
